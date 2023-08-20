@@ -1,8 +1,10 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tictactoe/controller/tile_controller.dart';
 import 'package:tictactoe/core/constants.dart';
 import 'package:tictactoe/widgets/background.dart';
+import 'package:tictactoe/widgets/round.dart';
 import 'package:tictactoe/widgets/score.dart';
 import 'package:tictactoe/widgets/tile.dart';
 
@@ -111,6 +113,7 @@ class _BoardPageState extends ConsumerState<BoardPage> {
     const tilesNumber = gridSize * gridSize;
     const tilePad = 0.95;
     return Scaffold(
+      backgroundColor: TictactoeColors.white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -135,9 +138,13 @@ class _BoardPageState extends ConsumerState<BoardPage> {
               ),
             ),
             const Align(
+              alignment: Alignment(0, -0.85),
+              child: RoundTrackWidget(),
+            ),
+            const Align(
               alignment: Alignment(0, 0.85),
               child: ScoreWidget(),
-            )
+            ),
           ],
         ),
       ),
